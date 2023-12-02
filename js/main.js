@@ -274,7 +274,16 @@ console.log(rankk);
 //example3
 let arun = "rock";
 let raj = "paper";
-let winner = arun === raj ? "Tie" : arun === "rock" && raj === "paper" ? "raj wins" : arun === "paper" && raj === "scissors" ? "raj Wins" : arun === "scissors" && raj === "rock" ? "raj wins" : "arun wins";
+let winner =
+  arun === raj
+    ? "Tie"
+    : arun === "rock" && raj === "paper"
+    ? "raj wins"
+    : arun === "paper" && raj === "scissors"
+    ? "raj Wins"
+    : arun === "scissors" && raj === "rock"
+    ? "raj wins"
+    : "arun wins";
 console.log(winner);
 
 // let myBoolean = alert("Hi Subscribers");
@@ -303,3 +312,125 @@ console.log(winner);
 
 //1.While Loop
 
+// example1
+let i = 0;
+while (i < 50) {
+  console.log(i);
+  i = i + 1;
+}
+
+// Do-While loop
+
+// example1
+let j = 50;
+do {
+  console.log(j);
+  i = i + 10;
+} while (j < 50);
+
+// for loop
+
+// example1
+for (k = 0; k <= 10; k++) {
+  console.log(k);
+}
+
+// example2
+let name = "Pazhani";
+for (let i = 0; i <= name.length; i++) {
+  console.log(name.charAt(i));
+}
+
+// nested loop
+
+// example1
+let petName = "Jerry";
+for (let l = 0; l <= name.length; l += 2) {
+  for (let m = 0; m <= name.length; m += 2) {
+    console.log(l, m);
+  }
+}
+
+// the fololwing two examples will tell the differnce between break and continue
+
+//Example for break
+let n = 0;
+while (n < 6) {
+  if (n === 3) {
+    break;
+  }
+  n = n + 1;
+}
+
+console.log(n);
+
+// Example for continue
+let text = "";
+for (let o = 0; o < 10; o++) {
+  if (o === 3) {
+    continue;
+  }
+  text = text + o;
+}
+console.log(text);
+
+// Functions(The main advantage of using a function is that it should be reuseable; so that we can use that function as many times as we want to call different paramaters at different place in a code)
+
+// example1
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum(2, 2));
+console.log(sum(2, 3));
+console.log(sum(2, 4));
+
+// example2
+function sum(a, b) {
+  console.log(a);
+  console.log(b);
+  if (b == undefined) {
+    return a;
+  }
+  return a + b;
+}
+console.log(sum(2));
+
+// example3
+function getUserName(email) {
+  return email.slice(0, email.indexOf("@"));
+}
+console.log(getUserName("pazhanivel11111@gmail.com"));
+
+// example4
+function toProperCase(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+console.log(toProperCase("paZHAnI"));
+
+// example5
+var toProperCase = function(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+};
+console.log(toProperCase("paZHAnI"));
+
+//scope var, let, const
+
+//global scope
+// (available globally throughout the code)
+var x = 1;
+let y = 2;
+const z =3;
+
+//local scope(block scope)
+// (available only inside a particular block of code)
+{
+let y = 4;
+}
+
+//local scope //function scope
+
+function myFunc() {
+  const z = 5;
+  console.log(z);
+}
+myFunc();

@@ -538,11 +538,11 @@ const anotherObj = {
     age: 26,
   },
   about: ["Left hander", "65kg", "179cm"],
-  action: function() {
+  action: function () {
     return "Hello World";
   },
-  general: function() {
-    return `My name is ${this.content.name}`
+  general: function () {
+    return `My name is ${this.content.name}`;
   },
 };
 
@@ -555,10 +555,10 @@ console.log(anotherObj["male"]);
 //another example
 
 const vehicle = {
-  door:2,
-  engine:function(){
+  door: 2,
+  engine: function () {
     return "vroooom";
-  }
+  },
 };
 
 //Inheritance concept is shown below!
@@ -571,9 +571,9 @@ console.log(car.engine());
 car.wheels = 4;
 console.log(car); //The inherited object properties wont show-up when the object is consoled but only the newly added property like the "wheel" here will be displayed when the object car is consoled!
 
-car.engine = function(){
+car.engine = function () {
   return "whoosh"; //Rewritting the inheritted property value of the object
-}
+};
 console.log(car.engine());
 
 const tesla = Object.create(car);
@@ -585,9 +585,26 @@ const movie = {
   actor: "Kavin",
   music: "ARR",
   director: "Lokesh",
-  producer: "Anbu"
+  producer: "Anbu",
 };
 
 console.log(Object.keys(movie));
 console.log(Object.values(movie));
 
+//using for-in loop to print values of an object in loop is shown below.
+
+for (let job in movie) {
+  console.log(movie[job]);
+}
+
+for (let job in movie) {
+  console.log(`${job}, it's ${movie[job]}`);
+}
+
+delete movie.producer;
+for (let job in movie) {
+  console.log(movie[job]);
+} // Now the producer value will not be displayed in the output!
+
+console.log(movie.hasOwnProperty("actor")); //will help to identify if a particular key is existing in an object
+console.log(movie.hasOwnProperty("producer"));

@@ -408,7 +408,7 @@ function toProperCase(name) {
 console.log(toProperCase("paZHAnI"));
 
 // example5
-var toProperCase = function(name) {
+var toProperCase = function (name) {
   return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 };
 console.log(toProperCase("paZHAnI"));
@@ -419,12 +419,12 @@ console.log(toProperCase("paZHAnI"));
 // (available globally throughout the code)
 var x = 1;
 let y = 2;
-const z =3;
+const z = 3;
 
 //local scope(block scope)
 // (available only inside a particular block of code)
 {
-let y = 4;
+  let y = 4;
 }
 
 //local scope //function scope
@@ -434,3 +434,160 @@ function myFunc() {
   console.log(z);
 }
 myFunc();
+
+// another example to explain about global and local scope
+
+console.log(`global: ${x}`);
+console.log(`global: ${y}`);
+console.log(`global: ${z}`);
+
+function func() {
+  const z = 7;
+  console.log(`function: ${x}`);
+  console.log(`function: ${y}`);
+  console.log(`function: ${z}`);
+
+  if (true) {
+    let y = 9;
+    console.log(`block: ${x}`);
+    console.log(`block: ${y}`);
+    console.log(`block: ${z}`);
+  }
+}
+func();
+
+//Arrays
+
+const myArray = [];
+myArray[0] = "Aji";
+myArray[1] = "Pazhani";
+myArray[2] = 222;
+myArray[3] = true;
+
+console.log(myArray);
+
+console.log(myArray.length);
+
+console.log(myArray[1]);
+
+console.log(myArray[myArray.length - 1]);
+
+myArray.push("click");
+console.log(myArray);
+
+myArray.pop();
+console.log(myArray);
+
+myArray.unshift("Jerry");
+console.log(myArray);
+
+myArray.shift();
+console.log(myArray);
+
+myArray.splice(2, 1);
+console.log(myArray);
+
+myArray.splice(2, 1, 5);
+console.log(myArray);
+
+myArray.splice(1, 0, "Senthil");
+console.log(myArray);
+
+myArray.reverse();
+console.log(myArray);
+
+const hello = myArray.join();
+console.log(hello);
+
+const hi = hello.split(",");
+console.log(hi);
+
+const newArray = myArray.slice(1, 3);
+console.log(newArray);
+
+const array1 = [1, 2, "aji", "hey"];
+const array2 = [66, 78, "apple"];
+
+const array3 = array1.concat(array2);
+
+console.log(array3);
+
+const array4 = [...array1, ...array2];
+console.log(array4);
+
+const array5 = [1, 2, 3];
+const array6 = [4, 5, 6];
+const array7 = [array5, array6];
+
+console.log(array7);
+console.log(array7[0][1]);
+
+//objects
+
+const myObj = {
+  name: "Aji",
+};
+
+console.log(myObj);
+
+const anotherObj = {
+  male: true,
+  money: 10000,
+  content: {
+    name: "Pazhani",
+    age: 26,
+  },
+  about: ["Left hander", "65kg", "179cm"],
+  action: function() {
+    return "Hello World";
+  },
+  general: function() {
+    return `My name is ${this.content.name}`
+  },
+};
+
+console.log(anotherObj.content.name);
+console.log(anotherObj.about);
+console.log(anotherObj.action());
+console.log(anotherObj.general());
+console.log(anotherObj["male"]);
+
+//another example
+
+const vehicle = {
+  door:2,
+  engine:function(){
+    return "vroooom";
+  }
+};
+
+//Inheritance concept is shown below!
+console.log(vehicle.engine());
+
+const car = Object.create(vehicle);
+
+console.log(car.engine());
+
+car.wheels = 4;
+console.log(car); //The inherited object properties wont show-up when the object is consoled but only the newly added property like the "wheel" here will be displayed when the object car is consoled!
+
+car.engine = function(){
+  return "whoosh"; //Rewritting the inheritted property value of the object
+}
+console.log(car.engine());
+
+const tesla = Object.create(car);
+console.log(tesla.door);
+console.log(tesla.engine());
+
+//another example
+const movie = {
+  actor: "Kavin",
+  music: "ARR",
+  director: "Lokesh",
+  producer: "Anbu"
+};
+
+console.log(Object.keys(movie));
+console.log(Object.values(movie));
+

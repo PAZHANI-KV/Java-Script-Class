@@ -788,3 +788,27 @@ return console.log(`Im Buying a ${this.#color} color ${this.type} of size ${this
 const clothing = new dress("medium");
 clothing.wearing();
 
+//JSON(JavaScript Object Notation)
+
+//Lets create an object to discuss about json as shown below
+
+const myObject = {
+  name: "Aji",
+  hobbies: ["cooking", "Anime", "series", "petting"],
+  jerry: function(){
+    console.log("Jerry is seven years old");
+  }
+};
+console.log(myObject);
+
+//The following codeline will convert the above object to JSON formate!
+
+const sendJSON = JSON.stringify(myObject);
+console.log(sendJSON);
+
+//The following codeline will convert the above json file again to object formate!
+
+const receiveJSON = JSON.parse(sendJSON);
+console.log(receiveJSON);
+
+//Errors and Error handling

@@ -765,3 +765,26 @@ class iceCream {
     this.flavour = flavourIceCream;
   }
 }
+
+//If a property is declared public in a class, then it is accessible by any object outside the class but if a property is declared as private in a class, then it is not accessible  by any object outside the class. This helps in preventing unwanted changes in the properties of a class. Lets see an example below to know about public property and private property.
+
+class dress {
+  type = "pant"; //public property
+  #color = "blue"; //private property
+  constructor(sizeDress) {
+    this.size = sizeDress;
+  }
+  getType() {
+    return this.type;
+  }
+  setSize(dressType) {
+    this.type = dressType;
+  }
+  wearing() {
+return console.log(`Im Buying a ${this.#color} color ${this.type} of size ${this.size}`);
+  }
+}
+
+const clothing = new dress("medium");
+clothing.wearing();
+

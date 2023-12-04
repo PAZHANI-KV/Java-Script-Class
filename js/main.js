@@ -608,3 +608,160 @@ for (let job in movie) {
 
 console.log(movie.hasOwnProperty("actor")); //will help to identify if a particular key is existing in an object
 console.log(movie.hasOwnProperty("producer"));
+
+//Lets see about destructuring the objects
+
+//destructuring & assigning particular key value of an object to a variable is shown below
+const { music: myFavMusicDirector, director: myFavDirector } = movie;
+console.log(myFavMusicDirector);
+console.log(myFavDirector);
+
+const { actor, music, director } = movie;
+console.log(actor);
+console.log(music);
+console.log(director);
+
+//classes
+
+//Class is basically a template used to create a well structured object
+
+//A normal object without any proper structural organisation is shown below.
+const myPizza = {
+  size: "medium",
+  crust: "original",
+  bake: function () {
+    return console.log(`Baking a ${this.size} ${this.crust} crust pizza.`);
+  },
+};
+
+myPizza.bake();
+
+// Example for well structured object using a class is shown below:
+
+class pizza {
+  constructor(typePizza, sizePizza, crustPizza) {
+    this.type = typePizza;
+    this.size = sizePizza;
+    this.crust = crustPizza;
+    this.toppings = "olives";
+  }
+  bake() {
+    return console.log(
+      `Baking a ${this.size} ${this.type} ${this.crust} crust  with ${this.toppings}`
+    );
+  }
+}
+
+//object 1 executed easily by passing the values into the above class template
+const anotherPizza = new pizza("margarita", "medium", "original");
+
+anotherPizza.bake();
+
+//object 2 executed easily by passing the values into the above class template
+
+const anPizza = new pizza("pepperoni", "medium", "original");
+
+anPizza.bake();
+
+// updating any value of an object just by a dot operator is shown below
+const pizzaHut = new pizza("pepperoni", "medium", "original");
+
+pizzaHut.toppings = "sausage"; //updating the prefixed topping from olive to sausage by using dot operator
+//But technically speaking, updating an object value like this is not a good practice.
+
+pizzaHut.bake();
+
+//So, the best way to change or update some value of an object is by using parameters by getter and setter method.This is explained by a piece of code as shown below
+
+// class phone {
+//   constructor(brandPhone, colorPhone){
+// this.brand = brandPhone;
+// this.color = colorPhone;
+// this.model = "15 pro max";
+//   }
+//   getModel(){
+//     return this.model;
+//   }
+//   setModel(mod){
+//     this.model = mod;
+//   }
+//   cell() {
+//     return console.log(`I bought a ${this.brand} branded ${this.color} colored phone of ${this.model} model`)
+//   }
+// }
+
+// const mobile = new phone("iPhone", "red");
+// mobile.setModel("14 plus");
+
+// mobile.cell();
+
+//The following is the same code as above but here we are updating many model name of the mobile in a array which is shown in the following code snippet.
+
+class phone {
+  constructor(brandPhone, colorPhone) {
+    this.brand = brandPhone;
+    this.color = colorPhone;
+    this.model = [];
+  }
+  getModel() {
+    return this.model;
+  }
+  setModel(mod) {
+    this.model.push(mod);
+  }
+  cell() {
+    return console.log(
+      `I bought a ${this.brand} branded ${this.color} colored phone of ${this.model} model`
+    );
+  }
+}
+
+const mobile = new phone("iPhone", "red");
+mobile.setModel("14 plus");
+mobile.setModel("15");
+mobile.setModel("13 pro");
+
+console.log(mobile.getModel());
+mobile.cell();
+
+//The following code snippet explains about creating and linking a child class with its parent class.
+
+//Parent class
+class pizzza {
+  constructor(sizepizzza) {
+    this.size = sizepizzza;
+    this.crust = "original;";
+  }
+  getCrust() {
+    return this.crust;
+  }
+  setCrust(crustPizzza) {
+    this.crust = crustPizzza;
+  }
+}
+
+//Child class
+class specialPizzza extends pizzza {
+  constructor(sizepizzza) {
+    super(sizepizzza);
+    this.type = "Margeritta";
+  }
+  slice() {
+    console.log(`our ${this.type} ${this.size} pizza has 8 slices`); //Here, we are accessing this.size from the above parent class and using it in child class.
+  }
+}
+const mySpecialPizzza = new specialPizzza("medium");
+mySpecialPizzza.slice();
+
+class iceCream {
+  constructor(shapeIceCream) {
+    this.shape = shapeIceCream;
+    this.flavour = "vannila";
+  }
+  getFlavour() {
+    return this.flavour;
+  }
+  setFlavour(flavourIceCream) {
+    this.flavour = flavourIceCream;
+  }
+}

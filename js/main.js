@@ -781,7 +781,9 @@ class dress {
     this.type = dressType;
   }
   wearing() {
-return console.log(`Im Buying a ${this.#color} color ${this.type} of size ${this.size}`);
+    return console.log(
+      `Im Buying a ${this.#color} color ${this.type} of size ${this.size}`
+    );
   }
 }
 
@@ -795,9 +797,9 @@ clothing.wearing();
 const myObject = {
   name: "Aji",
   hobbies: ["cooking", "Anime", "series", "petting"],
-  jerry: function(){
+  jerry: function () {
     console.log("Jerry is seven years old");
-  }
+  },
 };
 console.log(myObject);
 
@@ -812,3 +814,80 @@ const receiveJSON = JSON.parse(sendJSON);
 console.log(receiveJSON);
 
 //Errors and Error handling
+("use strict");
+
+// variable = "Aji"; //Referencr error
+const variable = "Aji";
+console.log(variable);
+
+//variable = "Hi"; //Type error
+
+// Object..create(); //syntax error
+
+// Sometimes errors like type error and reference error wont be minded by java script and the js will execute the code despite of those errors; which might create problems sometimes. Inorder to handle these errors, we have try catch error handling method. Lets discuss this along with an example code as shown below.
+
+const makeError = () => {
+  try {
+    const name = "Dhuddu";
+    name = "subscribe";
+  } catch (err) {
+    console.error(err);
+    // console.log(err);
+    // console.warn(err);
+    // console.table(err);
+  }
+};
+makeError();
+
+// Lets create a custom error as shown below
+
+function customError(message) {
+  this.message = message;
+  this.name = "custom Error";
+  this.stack = `${this.name}:${this.message}`;
+}
+
+const namasthe = () => {
+  try {
+    throw new customError("This is a custom error"); //In handling these custom errors, we have to use this "throw" keyword in try column to throw that particular custom error!
+  } catch (err) {
+    console.error(err.stack);
+  }
+};
+
+namasthe();
+
+//But there is an inbuilt custom error handling method in js which is by using the keyword "Error". An example for this is given below.
+
+const vanakkam = () => {
+  try {
+    throw new Error("This is a custom error");
+  } catch (err) {
+    console.error(err.stack);
+  }
+};
+
+vanakkam();
+
+// Another example is given below. Here, a method called finally is explained If this "finally" method is used, then this method is the last one to be executed. If try is ececuted then finally will be executed before the code ends and if catch is executed then the finally will be executed before the code ends. Anyhow, the "finally" will be the last one to be executed in the code but it will be executed for sure all the time when the code runs.
+
+const bachaa = () => {
+  let i = 0;
+  while (i <= 5) {
+    try {
+      if (i % 2 != 0) {
+        throw new Error("odd number");
+      }
+
+      console.log("Even number");
+    } catch (err) {
+      console.error(err.message);
+    } finally {
+      console.log("...finally");
+      i++;
+    }
+  }
+};
+
+bachaa();
+
